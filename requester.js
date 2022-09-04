@@ -1,12 +1,12 @@
-const http = require('http');
+const https = require('https');
 
 const data = JSON.stringify({
   todo: 'Buy the milk',
 });
 
 const options = {
-  hostname: 'localhost',
-  port: 5000,
+  hostname: 'ar-app-rest-api.herokuapp.com',
+
   path: '/updatepositions',
   method: 'PUT',
   headers: {
@@ -15,7 +15,7 @@ const options = {
   },
 };
 
-const req = http.request(options, res => {
+const req = https.request(options, res => {
   console.log(`statusCode: ${res.statusCode}`);
 
   res.on('data', d => {
